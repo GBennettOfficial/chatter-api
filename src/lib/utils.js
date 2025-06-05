@@ -6,7 +6,7 @@ export const generateToken = (userId, res) => {
         expiresIn: 15 * 60,
     })
 
-    res.cookie("jwt", token, { 
+    res.cookie("chatterAuthToken", token, { 
         maxAge: 15 * 60 * 1000, 
         httpOnly: true, // inhibits XSS attacks (cross-site scripting)
         sameSite: "strict", // inhibits CSRF attacks (cross-site request forgery)

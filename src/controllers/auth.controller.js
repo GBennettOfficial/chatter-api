@@ -84,15 +84,23 @@ export const login = async (req, res) => {
         });
     }
     catch (error) {
-                if (process.env.NODE_ENV == 'development') {
+        if (process.env.NODE_ENV == 'development') {
             console.log(`Error in login controller:", ${error}`);
         }
         res.status(500).json({ message: "Internal server error" });
     }
-    
+
 }
 
 export const logout = (req, res) => {
-    res.send("logout route");
+    try {
+        res.cookie("chatterAuthToken", "", { maxAge: 0 });
+        res.status(200).json({ message: "Logout successful" });
+    } catch (error) {
+        if (process.env.NODE_ENV == 'development') {
+            console.log(`Error in logout controller:", ${error}`);
+        }
+        res.status(500).json({ message: "Internal server error" });
+    }
 }
 
