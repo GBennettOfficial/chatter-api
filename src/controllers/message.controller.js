@@ -1,4 +1,7 @@
 
+import User from "../models/user.model.js";
+import Message  from "../models/message.model.js";
+
 export const getUsersForSidebar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
