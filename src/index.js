@@ -14,8 +14,8 @@ const PORT = process.env.PORT;
 app.use(express.json({ limit: '3mb' }));
 app.use(cookieParser());
 app.use(cors({
-    origin: '*',
-    credentials: false
+    origin: 'https://chatty-client-h2p3.onrender.com',
+    credentials: true
 }));
 
 app.use("/api/auth", authRoutes);
