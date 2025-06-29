@@ -13,7 +13,10 @@ const PORT = process.env.PORT;
 
 app.use(express.json({ limit: '3mb' }));
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    withCredentials: false
+}));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
