@@ -95,7 +95,7 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
     try {
-        res.cookie("chatterAuthToken", "", { maxAge: 0 });
+        res.cookie("chattyAuthToken", "", { maxAge: 0 });
         res.status(200).json({ message: "Logout successful" });
     } catch (error) {
         if (process.env.NODE_ENV == 'development') {
