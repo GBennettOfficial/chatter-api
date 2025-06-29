@@ -9,7 +9,7 @@ export const generateToken = (userId, res) => {
     res.cookie("chattyAuthToken", token, { 
         maxAge: 15 * 60 * 1000, 
         httpOnly: true, // inhibits XSS attacks (cross-site scripting)
-        sameSite: "strict", // inhibits CSRF attacks (cross-site request forgery)
+        sameSite: "none", // inhibits CSRF attacks (cross-site request forgery)
         secure: process.env.NODE_ENV !== 'development' // enforces https in production
     });
 
